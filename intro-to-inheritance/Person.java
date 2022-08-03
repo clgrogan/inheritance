@@ -1,5 +1,5 @@
 public class Person {
-  
+
     private String name;
     private int age;
 
@@ -11,6 +11,15 @@ public class Person {
     public Person(Person source) {
         this.name = source.name;
         this.age = source.age;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+
+        if (obj == null || (obj instanceof Person))
+            return false;
+
+        return false;
     }
 
 }
