@@ -1,5 +1,7 @@
 package models;
 
+import java.util.Objects;
+
 public abstract class Product {
   private Double price;
   private String color;
@@ -48,4 +50,23 @@ public abstract class Product {
         + ", Brand: " + this.brand
         + ", Color: " + this.color);
   }
+
+  @Override
+  public boolean equals(Object o) {
+    if (o == this)
+      return true;
+    if (!(o instanceof Product)) {
+      return false;
+    }
+    Product product = (Product) o;
+    return price == product.getPrice()
+        && color.equals(product.getColor())
+        && brand.equals(product.getBrand());
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(price, color, brand);
+  }
+
 }

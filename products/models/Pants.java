@@ -1,5 +1,7 @@
 package models;
 
+import java.util.Objects;
+
 public class Pants extends Product {
   private String waist;
 
@@ -34,4 +36,20 @@ public class Pants extends Product {
     );
   }
 
+  @Override
+  public boolean equals(Object o) {
+    if (o == this)
+      return true;
+    if (!(o instanceof Pants)) {
+      return false;
+    }
+    Pants pants = (Pants) o;
+    return super.equals(pants)
+        && waist.equals(pants.waist);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(waist, super.hashCode());
+  }
 }
