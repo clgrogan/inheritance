@@ -69,4 +69,6 @@ public abstract class Product {
     return Objects.hash(price, color, brand);
   }
 
+  public abstract void fold();
+
 }

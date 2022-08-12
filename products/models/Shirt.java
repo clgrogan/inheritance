@@ -46,4 +46,10 @@ public class Shirt extends Product {
     return Objects.hash(size, super.hashCode());
   }
 
+  @Override
+  public void fold() {
+    System.out.println("Folding activity occurs for shirt.");
+
+  }
+
 }

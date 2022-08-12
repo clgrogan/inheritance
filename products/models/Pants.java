@@ -52,4 +52,11 @@ public class Pants extends Product {
   public int hashCode() {
     return Objects.hash(waist, super.hashCode());
   }
+
+  @Override
+  public void fold() {
+    System.out.println("Folding activity occurs for pants.");
+
+  }
+
 }
