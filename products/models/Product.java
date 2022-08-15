@@ -2,7 +2,7 @@ package models;
 
 import java.util.Objects;
 
-public abstract class Product {
+public abstract class Product implements Comparable<Product> {
   private Double price;
   private String color;
   private String brand;
@@ -45,10 +45,10 @@ public abstract class Product {
 
   @Override
   public String toString() {
-    return ("Product: " + this.getClass().getSimpleName()
-        + ", Price: " + this.price
-        + ", Brand: " + this.brand
-        + ", Color: " + this.color);
+    return (this.getClass().getSimpleName()
+        + "\tPrice: " + this.price
+        + "\tBrand: " + this.brand
+        + "\tColor: " + this.color);
   }
 
   @Override
@@ -70,5 +70,17 @@ public abstract class Product {
   }
 
   public abstract void fold();
+
+  @Override
+  public int compareTo(Product specifiedObject) { // receives an object
+    String className = this.getClass().getSimpleName();
+    String sClassName = specifiedObject.getClass().getSimpleName();
+
+    if (!className.equals(sClassName))
+      return className.compareTo(sClassName);
+
+    // return (int) Math.round(this.getPrice() - specifiedObject.getPrice());
+    return Double.compare(this.getPrice(), specifiedObject.getPrice());
+  }
 
 }

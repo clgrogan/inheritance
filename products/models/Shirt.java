@@ -3,9 +3,13 @@ package models;
 import java.util.Objects;
 
 public class Shirt extends Product {
-  private String size;
+  public enum Size {
+    SMALL, MEDIUM, LARGE
+  };
 
-  public Shirt(String size, Double price, String color, String brand) {
+  private Size size;
+
+  public Shirt(Size size, Double price, String color, String brand) {
     super(price, color, brand);
     this.size = size;
   }
@@ -15,18 +19,18 @@ public class Shirt extends Product {
     this.size = source.size;
   }
 
-  public String getSize() {
+  public Size getSize() {
     return this.size;
   }
 
-  public void setSize(String size) {
+  public void setSize(Size size) {
     this.size = size;
   }
 
   @Override
   public String toString() {
     return super.toString()
-        + ", Size: " + this.size;
+        + "\tSize: " + this.size;
   }
 
   @Override
