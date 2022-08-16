@@ -17,7 +17,6 @@ public class Book implements Comparable<Book> {
         this.price = source.price;
     }
 
-
     public String getName() {
         return this.name;
     }
@@ -42,7 +41,6 @@ public class Book implements Comparable<Book> {
         this.price = price;
     }
 
-
     @Override
     public boolean equals(Object o) {
         if (o == this)
@@ -58,13 +56,11 @@ public class Book implements Comparable<Book> {
     public int hashCode() {
         return Objects.hash(name, author, price);
     }
-    
 
     @Override
     public int compareTo(Book o) {
-        return Double.compare(super.getPrice(), o.getPrice());
+        return Double.compare(this.getPrice(), o.getPrice());
     }
-
 
     @Override
     public String toString() {
